@@ -31,6 +31,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
+    'products',
     'accounts',
     'base'
 ]
