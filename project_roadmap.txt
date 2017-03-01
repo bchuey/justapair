@@ -1,0 +1,83 @@
+Login/Registration
+
+Products
+	- list of products
+	- single product detail page
+
+Search
+	- use Q 
+
+Wishlist
+	- list of all wishlists
+	- single wishlist 
+	- click on single item, brings user to product page
+
+Recommendation algorithm
+	- 
+
+Checkout
+	- cart
+	- info (email)
+	- billing
+	- shipping
+	- payment
+	- confirmation
+
+Order (current)
+	- calculations for cart
+	- add the tax
+	- add the shipping
+	
+
+Dashboard
+	- active orders
+	- past orders
+
+
+
+####### Templates #######
+
+Login/Registration (one page)
+	- login
+	- registration
+
+Products
+	- ListView
+	- DetailView
+
+Search
+	- use Q 
+
+Wishlist
+	- listview
+	- one per wishlist
+
+Recommendation algorithm
+	- 
+
+Checkout
+	- cart
+	- billing
+	- shipping
+	- payment
+	- confirmation
+		- includes ability for user to automatically create account
+			- just need to enter/confirm password
+			- other details will be pulled from the previous steps in checkout
+
+
+Order (current)
+	- 
+
+Dashboard
+	- active orders
+	- past orders
+
+
+
+
+
+### NOTES ###
+
+- need pagination
+- need to somehow cache the size/color/quantity

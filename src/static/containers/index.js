@@ -6,3 +6,6 @@ export NotFoundView from '../NotFound/containers/index';
 export TestView from '../Test/containers/index';
 export ProductsView from '../Products/containers/index';
 export SingleProductView from '../Products/containers/single_product';
+export CheckoutView from '../Checkout/containers/checkout_view';
+export CheckoutDetail from '../Checkout/containers/checkout_detail';
+export BillingView from '../Checkout/containers/Billing/billing';
