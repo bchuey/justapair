@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import { Row, ListGroup, ListGroupItem } from 'react-bootstrap';
+
 import './style.scss';
 
 class SubNav extends React.Component {
@@ -13,13 +15,13 @@ class SubNav extends React.Component {
     render() {
         return (
         	<div id="sub_nav" className="container-fluid">
-                <div className="row">
+                <Row>
                     <ul id="sub_nav_ul">
 				      	<li><a href="#">COLLECTIONS</a></li>
 				      	<li><a href="#">OUR STORY</a></li>
 				      	<li><a href="#">CONTACT</a></li>
 				      </ul>
-            	</div>
+                </Row>
             </div>
              
         );

@@ -9,6 +9,8 @@ import boyfriend_jean from './images/boyfriend.jpg';
 import flare_jean from './images/flare.jpg';
 import cropped_jean from './images/cropped.jpg';
 
+
+
 class SimilarProducts extends React.Component {
     constructor(props, context) {
         super(props, context);

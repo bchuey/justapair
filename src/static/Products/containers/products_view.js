@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import AltNav from '../../Home/components/alt_nav';
 import ProductsListing from '../components/products_listing';
@@ -13,7 +14,11 @@ import flare_jean from './images/flare.jpg';
 import cropped_jean from './images/cropped.jpg';
 import high_waisted_jean from './images/high_waisted.jpg';
 
+import { Row, Col } from 'react-bootstrap';
 import './style.scss';
+
+// actions
+import { showAllProducts } from '../actions/products';
 
 class ProductsView extends React.Component {
     constructor(props, context) {
@@ -31,6 +36,13 @@ class ProductsView extends React.Component {
 
     }
 
+    componentWillMount(){
+        // run action here
+        // have access to the store
+        // pass that list of products down as props
+        this.props.showAllProducts();
+    }
+
     render() {
 
         let jean_styles = this.state.styles.map((style) => {
@@ -43,26 +55,26 @@ class ProductsView extends React.Component {
         })
 
         return (
-            <div className="container">
+            <div>
                 <AltNav/>
-                <div className="row">
+                <Row>
                     <h3>CHOOSE YOUR STYLE</h3>
                     <ul id="jean_style">
                         { jean_styles }
                     </ul>
-                </div>
-                <div className="row">
+                </Row>
+                <Row>
                     <p>breadcrumbs</p>
-                </div>
-                <div className="row">
-                    <div className="col-xs-3">
+                </Row>
+                <Row>
+                    <Col xs={3}>
                         <FilterMenu/>
-                    </div>
-                    <div className="col-xs-9">
+                    </Col>
+                    <Col xs={9}>
                         <ProductsListing/>
-                    </div>
+                    </Col>
                     
-                </div>
+                </Row>
             </div>
         );
     }
@@ -70,9 +82,17 @@ class ProductsView extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-
+        products: state.products.products
     };
 };
 
-export default connect(mapStateToProps)(ProductsView);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+
+        showAllProducts,
+
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsView);
 export { ProductsView as ProductsViewNotConnected };

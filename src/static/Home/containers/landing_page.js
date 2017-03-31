@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import { Jumbotron, Row, Col, Button } from 'react-bootstrap';
+
 import './style.scss';
 import reactLogo from './images/react-logo.png';
 import reduxLogo from './images/redux-logo.png';
@@ -20,35 +22,35 @@ class LandingPageView extends React.Component {
     render() {
         return (
             <div>
-                <div className="jumbotron">
+                <Jumbotron>
                     <TopNav/>
                     <MainNav/>
                     <SubNav/>
                     <div className="container-fluid">
-                        <div className="row">
+                        <Row>
                             <h1 className="text-center">NEW ARRIVALS</h1>
-                        </div>
+                        </Row>
                     </div>
                     <div className="container-fluid">
-                        <div className="row text-center">
-                            <button className="btn btn-primary">SHOP NOW</button>
-                        </div>
+                        <Row bsClass="text-center">
+                            <Button bsClass="btn-primary">SHOP NOW</Button>
+                        </Row>
                     </div>
                     
-                </div>
+                </Jumbotron>
                 <div className="container-fluid">
-                    <div id="must_haves" className="col-xs-6">
+                    <Col xs={6} id="must_haves">
                         <h3 id="must_haves_heading">MUST HAVES</h3>
-                    </div>
-                    <div id="inspirations" className="col-xs-6">
+                    </Col>
+                    <Col xs={6} id="inspirations">
                         <h3 id="inspirations_heading">PERSONAL <br/>OUTFIT <br/>INSPIRATIONS</h3>
-                    </div>
+                    </Col>
                 </div>
                 <div className="container-fluid">
                     <h3 className="text-center">STAY CONNECTED</h3>
-                    <div className="row">
+                    <Row>
 
-                    </div>
+                    </Row>
                 </div>
                 <div className="container-fluid">
                     <Footer/>

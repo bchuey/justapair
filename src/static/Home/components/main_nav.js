@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import { Row } from 'react-bootstrap';
+
 import './style.scss';
 
 class MainNav extends React.Component {
@@ -13,9 +15,9 @@ class MainNav extends React.Component {
     render() {
         return (
             <div id="main_nav" className="container-fluid">
-                <div className="row">
+                <Row>
                     <h3>Just A Pair.</h3>
-            	</div>
+                </Row>
             </div>
         );
     }

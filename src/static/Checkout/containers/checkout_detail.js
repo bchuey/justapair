@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+
+import { Row, Col, Button } from 'react-bootstrap';
+
+
 import QuantityComponent from '../components/quantity';
 
 class CheckoutDetail extends React.Component {
@@ -33,10 +37,10 @@ class CheckoutDetail extends React.Component {
 
         return (
             <div className="container">
-                <div className="row pull-right">
-                    <button className="btn btn-addToBag">CHECKOUT</button>
-                </div>
-                <div className="row">
+                <Row bsClass="pull-right">
+                    <Button bsClass="btn-addToBag">CHECKOUT</Button>
+                </Row>
+                <Row>
                     <table className="table">
                         <thead>
                             <tr>
@@ -49,10 +53,10 @@ class CheckoutDetail extends React.Component {
                             {purchased_items}
                         </tbody>
                     </table>
-                </div>
-                <div className="row pull-right">
-                    <button className="btn btn-addToBag">CHECKOUT</button>
-                </div>
+                </Row>
+                <Row bsClass="pull-right">
+                    <Button bsClass="btn-addToBag">CHECKOUT</Button>
+                </Row>
             </div>
         );
     }

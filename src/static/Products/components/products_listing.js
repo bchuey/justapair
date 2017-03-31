@@ -31,9 +31,9 @@ class ProductsListing extends React.Component {
 
     render() {
 
-        let product_items = this.state.items.map((item) => {
+        let product_items = this.props.products.map((item) => {
             return (
-                <SingleProductsListing key={item.name} item={item} />
+                <SingleProductsListing key={item.title} item={item} />
             )
         })
 
@@ -47,7 +47,7 @@ class ProductsListing extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-
+        products: state.products.products
     };
 };
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { Field, reduxForm } from 'redux-form';
 
+
 class ShippingForm extends React.Component {
     constructor(props, context) {
         super(props, context);

@@ -9,7 +9,7 @@ SECRET_KEY = 'ajsdgas7&*kosdsa21[]jaksdhlka-;kmcv8l$#diepsm8&ah^'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 # Application definition
 
@@ -31,6 +31,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
+    'cart',
     'products',
     'accounts',
     'base'

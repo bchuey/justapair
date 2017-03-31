@@ -45,7 +45,7 @@ const mapStateToProps = (state) => {
 };
 
 BillingForm = reduxForm({
-    form: 'shipping'
+    form: 'billing'
 })(BillingForm)
 
 export default connect(mapStateToProps)(BillingForm);

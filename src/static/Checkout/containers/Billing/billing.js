@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 import ShippingForm from './shipping_form';
 import BillingForm from './billing_form';
+import OrderSummary from './order_summary';
+
+import { Row, Col } from 'react-bootstrap';
 
 class BillingView extends React.Component {
     constructor(props, context) {
@@ -19,22 +22,22 @@ class BillingView extends React.Component {
 
         return (
             <div className="container">
-                <div className="col-xs-8">
-                    <div className="row">
+                <Col xs={8}>
+                    <Row>
                         <h4>Shipping Information</h4>
                         <ShippingForm/>
-                    </div>
-                    <div className="row">
+                    </Row>
+                    <Row>
                         <h4>Billing Information</h4>
                         <BillingForm/>
-                    </div>
-                    <div className="row">
+                    </Row>
+                    <Row>
                         <h4>Delivery Options</h4>
-                    </div>
-                </div>
-                <div className="col-xs-4">
-
-                </div>
+                    </Row>
+                </Col>
+                <Col xs={4}>
+                    <OrderSummary />
+                </Col>
             </div>
         );
     }

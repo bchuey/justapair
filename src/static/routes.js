@@ -8,6 +8,7 @@ import {
 	ProtectedView, 
 	NotFoundView, 
 	TestView,
+    ShopView,
 	ProductsView,
     SingleProductView,
     CheckoutView,
@@ -24,8 +25,11 @@ export default(
         <Route path="login" component={LoginView}/>
         <Route path="protected" component={requireAuthentication(ProtectedView)}/>
         <Route path="test" component={TestView}/>
-        <Route path="shop" component={ProductsView}/>
-        <Route path="shop/single-product" component={SingleProductView}/>
+        <Route path="shop" component={ShopView}>
+            <IndexRoute component={ProductsView}/>
+            <Route path="single-product" component={SingleProductView}/>
+            <Route path=":productId" component={SingleProductView}/>
+        </Route>
         <Route path="checkout" component={CheckoutView}>
             <IndexRoute component={CheckoutDetail}/>
             <Route path="billing" component={BillingView}/>

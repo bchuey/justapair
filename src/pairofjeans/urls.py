@@ -6,7 +6,8 @@ from django.views.decorators.cache import cache_page
 from base import views as base_views
 
 urlpatterns = [
-	url(r'^api/v1/products/', include('products.urls', namespace='products')),
+	url(r'^api/v1/carts/', include('cart.api.urls', namespace='carts')),
+	url(r'^api/v1/products/', include('products.api.urls', namespace='products')),
     url(r'^api/v1/accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^api/v1/getdata/', include('base.urls', namespace='base')),
     url(r'^admin/', admin.site.urls),

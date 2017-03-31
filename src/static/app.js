@@ -5,6 +5,7 @@ import { push } from 'react-router-redux';
 import classNames from 'classnames';
 
 import { authLogoutAndRedirect } from './Login/actions/auth';
+
 import './styles/main.scss';
 
 class App extends React.Component {

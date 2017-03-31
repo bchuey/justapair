@@ -7,7 +7,8 @@ class Product(models.Model):
 	# attributes go here
 	title = models.CharField(max_length=200)
 	description = models.TextField()
-
+	images = models.ManyToManyField('ProductImage', blank=True)
+	price = models.DecimalField(max_digits=7, decimal_places=2, default=00.00)
 	# class Meta:
 	"""
 		Model metadata is “anything that’s not a field”, such as ordering options (ordering), database table name (db_table), or human-readable singular and plural names (verbose_name and verbose_name_plural). None are required, and adding class Meta to a model is completely optional.
@@ -36,58 +37,77 @@ class Product(models.Model):
 		# return 
 
 
-# class Jean(Product):
+class Jean(Product):
 
-# 	# attributes go here
-# 	color = models.CharField() # based on the actual brand and style
-# 	waist = models.CharField() # preset 
-# 	length = models.CharField() # preset 
-# 	brand = models.CharField() # preset - relationship
-# 	style = models.CharField() # preset - relationship 
+	# attributes go here
+	colors = models.ManyToManyField('Color')
+	sizes = models.ManyToManyField('Size') 
+	brand_name = models.ForeignKey('Brand', on_delete=models.CASCADE)
+	style = models.ForeignKey('Style', on_delete=models.CASCADE) 
 
-# 	def __str__(self):
+	def __str__(self):
 
-# 		return self.title
-
-
-# 	# certain attributes iwll be used for filtering
+		return self.title
 
 
-# class Brand(models.Model):
+	# certain attributes iwll be used for filtering
 
-# 	name = models.CharField()
+class ProductImage(models.Model):
 
-# 	def __str__(self):
+	img_filename = models.CharField(max_length=255)
 
-# 		return self.name
+	def __str__(self):
 
+		return self.img_filename
 
-# 	# will be used for filtering
-# 	# might need a custom Manager
+class Brand(models.Model):
 
-# class Style(models.Model):
+	name = models.CharField(max_length=255)
 
-# 	style_type = models.CharField()
+	def __str__(self):
 
-# 	def __str__(self):
-
-# 		return self.style_type
+		return self.name
 
 
-# 	# will be used for filtering
-# 	# might need a custom Manager
+	# will be used for filtering
+	# might need a custom Manager
+
+class Style(models.Model):
+
+	style_type = models.CharField(max_length=125)
+
+	def __str__(self):
+
+		return self.style_type
 
 
-# class Size(models.Model):
+	# will be used for filtering
+	# might need a custom Manager
 
-# 	dimension = models.CharField()
 
-# 	def __str__(self):
+class Size(models.Model):
 
-# 		return str(self.dimension)
+	waist = models.CharField(max_length=2)
+	length = models.CharField(max_length=2)
 
-# class ProductImage(models.Model):
+	def __str__(self):
 
-# 	def __str__(self):
+		return '{0}x{1}'.format(self.waist,self.length)
 
-# 		return self.img_filename
+class Color(models.Model):
+
+	hex_value = models.CharField(max_length=7)
+
+	def __str__(self):
+
+		return self.hex_value
+
+
+
+
+
+
+
+
+
+

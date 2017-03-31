@@ -1,54 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import SingleProductDetail from '../components/single_product/single_product_detail';
 import SingleProductImagesListing from '../components/single_product/single_product_images_listing';
 import SimilarProducts from './similar_products';
 
+import { Row, Col } from 'react-bootstrap';
 import './style.scss';
 import '../../base_style.scss';
+
+import { fetch_single_product } from '../actions/products';
 
 class SingleProductView extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            product: {
-                'name': 'Cropped High-Waisted Jeans',
-                'price': 23.00,
-                'description': 'Blah blah blah',
-                'material': 'synthetic cotton and fiber',
-                'reviews': [
-                    {'id':1,'content':'It is great'},
-                    {'id':2,'content':'It is awesome'},
-                    {'id':3,'content':'It is good'},
-                ]
-
-            }
+            
         };
 
 
     }
 
-    render() {
+    componentWillMount(){
 
-      
+        this.props.fetch_single_product(this.props.params.productId);
+    }
+
+    render() {
 
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col-xs-6">
+                <Row>
+                    <Col xs={6}>
                         <SingleProductImagesListing/>
-                    </div>
-                    <div className="col-xs-6">
-                        <SingleProductDetail product={this.state.product}/>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-xs-12">
+                    </Col>
+                    <Col xs={6}>
+                        <SingleProductDetail product={this.props.product}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
                         <SimilarProducts />
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </div>
         );
     }
@@ -56,9 +52,16 @@ class SingleProductView extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-
+        product: state.products.product
     };
 };
 
-export default connect(mapStateToProps)(SingleProductView);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    fetch_single_product,
+  }, dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProductView);
 export { SingleProductView as SingleProductViewNotConnected };

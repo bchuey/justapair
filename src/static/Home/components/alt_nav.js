@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import { Jumbotron, Row, Col, Button } from 'react-bootstrap';
 
 class AltNav extends React.Component {
 
