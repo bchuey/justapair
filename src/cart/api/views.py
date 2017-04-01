@@ -31,66 +31,24 @@ class CartRetrieveAPIView(generics.RetrieveAPIView):
 
 	serializer_class = CartModelSerializer
 
-
-# add to cart
-# @csrf_exempt
-# def add_to_cart(request):
-# 	print(request)
-# 	print(request.body)
-# 	print("uhhh added to cart")
-# 	# if 'cart' in request.session:
-# 	# 	current_cart = request.session['cart']
-# 	# else:
-# 	# 	current_cart = Cart.create(account=request.user)
-
-# 	# product = Product.objects.get(pk=request.data['product_id'])
-
-# 	# current_cart.products.add(product)
-
-# 	# current_cart = CartModelSerializer()
-
-# 	# return Response({
-# 	# 	'cart': current_cart
-# 	# 	})
-# 	new_cart = Cart()
-# 	new_cart.save()
-# 	print(new_cart)
-# 	added_product = Product.objects.get(pk=request.body)
-# 	print(added_product)
-# 	new_cart.products.add(added_product)
-	
-
-# 	return Response({'cart': new_cart})
-
-
 class AddToCartAPIView(APIView):
 
 	def post(self, request):
-		print(request)
-		print(request.body)
-		print("uhhh added to cart")
-		# if 'cart' in request.session:
-		# 	current_cart = request.session['cart']
-		# else:
-		# 	current_cart = Cart.create(account=request.user)
 
-		# product = Product.objects.get(pk=request.data['product_id'])
-
-		# current_cart.products.add(product)
-
-		# current_cart = CartModelSerializer()
-
-		# return Response({
-		# 	'cart': current_cart
-		# 	})
 		new_cart = Cart()
 		new_cart.save()
-		print(new_cart)
+
 		added_product = Product.objects.get(pk=request.body)
-		print(added_product)
+		
 		new_cart.products.add(added_product)
 
 		serialized_cart = CartModelSerializer(new_cart)
-		print('the serialized cart', serialized_cart)
-		print('the serialized cart data', serialized_cart.data)
+		
+		# print('the serialized cart', serialized_cart)
+		# print('the serialized cart data', serialized_cart.data)
+
 		return Response(serialized_cart.data)
+
+
+
+		

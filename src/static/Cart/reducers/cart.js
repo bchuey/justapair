@@ -41,7 +41,7 @@ export default createReducer(INITIAL_STATE, {
         // set new state of cart 
         console.log('the cart payload', payload)
 		return Object.assign({}, state, {
-			// cart: payload,
+			cart: payload,
 			isFetching: false,
             isFetched: true,
 		});
