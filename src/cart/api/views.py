@@ -31,9 +31,17 @@ class CartRetrieveAPIView(generics.RetrieveAPIView):
 
 	serializer_class = CartModelSerializer
 
+# add item to cart
 class AddToCartAPIView(APIView):
 
 	def post(self, request):
+
+		# check if a cart exists in 'session'
+		# if not, create cart w/ guest owner
+
+		# if user decides to login
+		# need to retrieve the cart in 'session'
+		# and assign the user as 'owner'
 
 		new_cart = Cart()
 		new_cart.save()

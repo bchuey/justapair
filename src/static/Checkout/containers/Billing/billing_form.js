@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { Field, reduxForm } from 'redux-form';
+import { Control, Form } from 'react-redux-form';
+
+import { Row, Button } from 'react-bootstrap';
 
 class BillingForm extends React.Component {
     constructor(props, context) {
@@ -19,34 +23,33 @@ class BillingForm extends React.Component {
       
 
         return (
-            <form>
-                <div>
-                    <Field name="cardholderName" component="input" type="text" placeholder="Cardholder Name"/>
-                </div>
-                <div>
+            <Form model="deep.billingForm">
+                <Control.text model=".cardHolder"/>
+                <Control.text model=".ccNumber"/>
+                <Control.text model=".expDate"/>
+                <Control.text model=".cvv"/>
 
-                    <Field name="cardNumber" component="input" type="text" placeholder="Credit Card Number"/>
-                </div>
-                <div>
-                    <Field name="expDate" component="input" type="text" placeholder="00/0000"/>
-                </div>
-                 <div>
-                    <Field name="cvv" component="input" type="text" placeholder="CVV" />
-                </div>
-            </form>
+                <Button></Button>
+            </Form>
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-
+        billingForm: state.deep.forms.billingForm,
     };
 };
 
-BillingForm = reduxForm({
-    form: 'billing'
-})(BillingForm)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+        // action for the submit
+  }, dispatch);
+}
 
-export default connect(mapStateToProps)(BillingForm);
+// BillingForm = reduxForm({
+//     form: 'billing'
+// })(BillingForm)
+
+export default connect(mapStateToProps,mapDispatchToProps)(BillingForm);
 export { BillingForm as BillingFormNotConnected };

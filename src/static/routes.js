@@ -27,7 +27,6 @@ export default(
         <Route path="test" component={TestView}/>
         <Route path="shop" component={ShopView}>
             <IndexRoute component={ProductsView}/>
-            <Route path="single-product" component={SingleProductView}/>
             <Route path=":productId" component={SingleProductView}/>
         </Route>
         <Route path="checkout" component={CheckoutView}>
